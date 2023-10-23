@@ -5,6 +5,8 @@ console.log("This is the first execution from node js.")
 // reach to the path of the file
 // cmd - node <filename>
 
+console.log(add(9,9))
+console.log(myName) //
 
 function add(a, b) {
     return a + b
@@ -12,4 +14,4 @@ function add(a, b) {
 
 console.log(add(5,6))
 
-
+var myName = "Some Values"
