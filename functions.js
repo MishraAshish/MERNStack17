@@ -49,5 +49,31 @@ var user = new funcConstructor("Bryan", 17, "Wall streets")
 
 console.log(user.getUserDetails())
 
+//5. Nested Function
+
+function Login(params) {
+    
+    function AuthenticateUser(params) {
+        
+        function AuthorizeUser(params) {
+            
+            function CreateSession(params) {
+                
+                function NavigateUser(params) {
+                    
+                }
+            }    
+        }    
+    }
+}
+
 
 //do practice each type by writing your own
+
+//Practice questions
+//1. Create a constructor Function with Name account and add properties like - AccType, Name, Balance, etc
+//2. Create a method in it to return account details 
+//3. Create an IIFE and try to access it after execution
+//4. Create a function with name Add (accept two params) and
+//  again create a function expression with name Add(three params), both should return the Sum of params
+//5. Try executing both functions on top (i.e. before declaration of it and see results)
