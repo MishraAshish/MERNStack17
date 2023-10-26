@@ -13,7 +13,6 @@ function MyFunc() { //function definitions
 
 console.log(MyFunc())
 
-
 //2. Function expression
 
 var FuncExps = function(a,b){
@@ -25,8 +24,8 @@ FuncExps(9,10);
 //3. Singleton Function or IIFE - immediately invocable function expression
 
 (function IIFE(params) {
-    console.log(params)
-})("Gauri")
+        console.log(params)
+    })("Gauri")
 
 
 //IIFE(params) //can't be accessed second time
