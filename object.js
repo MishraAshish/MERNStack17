@@ -116,3 +116,11 @@ Delivery = Object.assign(Delivery, User, Address)
 User.Session = "Test Sessions" // follows the principles of immutability
 
 console.log(Delivery)
+
+
+//Create an object with name Person and have some properties in it
+// inherit person object to create new object Student - this should have two properties additional and one method
+// create one object Jobs - (JobTitle, Salary, Location) and one object Student with salary
+// Merge person and Salary so that Salary comes from Jobs Object
+// Create a null - prototype object
+
