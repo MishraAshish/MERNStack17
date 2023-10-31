@@ -12,3 +12,14 @@
 //Q5. Print the topics you have done so far exporting it from one file and printing in another
 
 //Q6. Give me an example of your choice on closure, objects, prototype, each.
+
+//Q7. Create an object without prototype chain or i do not want it to be inherited further
+
+//Q8. what will the following code output? why?
+
+// const arr = [10, 12, 15, 21];
+// for (var i = 0; i < arr.length; i++) {
+//   setTimeout(function() {
+//     console.log('Index: ' + i + ', element: ' + arr[i]);
+//   }, 3000);
+// }
