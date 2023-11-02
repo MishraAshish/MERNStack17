@@ -1,4 +1,9 @@
-//
+// call and apply are the functions present in any function which will help us to decide the run time context of 
+// executing function, this way we can associate any object as the run time context (this)
+
+// call - whenever we need to pass parameter we pass it one by one after the object
+// apply - we can pass all the parameters as an array after the object
+
 
 // name = "Gauri"
 // age = "22"
