@@ -85,3 +85,9 @@ for (let k = 1; k < 5; k++) {
 }
 
 //console.log(k)
+
+
+var newVal = "Test Me"
+ let newVal = 25000
+
+ console.log(newVal)
