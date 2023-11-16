@@ -80,7 +80,11 @@ let newLet = "My Let Hoisting"
 
 for (let k = 1; k < 5; k++) {
     setTimeout(function() {
-        console.log(`Value of i ${k}`)
+        console.log(`Value 
+        of 
+        i 
+        ${k}
+        `)
     }, 2000);    
 }
 
@@ -88,6 +92,6 @@ for (let k = 1; k < 5; k++) {
 
 
 var newVal = "Test Me"
- let newVal = 25000
+let newVal = 25000
 
- console.log(newVal)
+//  console.log(newVal)
