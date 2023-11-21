@@ -44,11 +44,11 @@ let User = {Session : "ES6", Topic : "Destructuring", Timing : {FirstSlot : "9AM
 // console.log(User.Topic)
 // console.log(User.Timing.SecondSlot)
 
-let { Topic, Timing = { SecondSlot, ThirdSlot : "11AM" } } = User
+let { Topic, Timing : { SecondSlot, ThirdSlot = "11AM" } } = User
 
 console.log(Topic)
-console.log(Timing.SecondSlot)
-console.log(Timing.ThirdSlot)
+console.log(SecondSlot)
+console.log(ThirdSlot)
 
 
 
