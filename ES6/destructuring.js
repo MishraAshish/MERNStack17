@@ -75,3 +75,14 @@ let StudentTest = {
 
 //create a for loop using var and let, print each value in timeout after 2 second and to 
 //demonstrate functional scope of var and lexical of let 
+
+
+////
+//1 Example of bind function on browser, we must be able to change the object on click
+//2 Create object without protoype and the inherit it futher
+//3 Create a function to populate user details. 
+//	func - populateDetail prints Adress and accepts a callBackFunction which prints Name, Age and Topic
+//4 Javascript currying is achieved by returning functions from functions. Here, the outer function (print) 
+//	supplies the printing to be used while the returned function allows the caller to supply the name of the printer.
+//5 Create Two objects UserDetail (Properties should be  Name, Age, Street)and UserAddress(Name, Street, City, ZipCode), merge both of them in to UserDetail.
+	
