@@ -3,7 +3,14 @@ console.log("Creating API using express server")
 const express = require('express') //importing express package and use top level express method
 const app = express() //using express function we initialize express application
 
-app.get('/', function (req, res) {
+const adminApp = express() //created to load the request for admin/backend work
+const adminRoutes = require("./Router/admin-route")
+
+//setting up the middleware static to handle all the static files we need to serve to client
+// serve static files like images css using static middleware 
+app.use('/static', express.static('public')) //localhost:9000/static/alert.js
+
+app.get('/hello', function (req, res) {
   res.send('Hello World')
 })
 
@@ -43,13 +50,29 @@ app.get('/routeParam/:id',(req, res)=>{
 })
 
 app.get('/file', function (req, res) {
-  res.sendFile(__dirname+"/index.html")
+  res.sendFile(__dirname+"/public/index.html")
 })
 
-//default or wild card operator to serve request for any request/path
-app.get('*', function (req, res) {
-  res.send("<h1>API is not ready yet!!</h1>")
+app.get('/static.js', function (req, res) {
+  res.sendFile(__dirname+"/public/static.js")
 })
+
+
+app.use('/admin', adminApp)
+adminApp.use('/',adminRoutes)
+
+//default or wild card operator to serve request for any request/path
+// app.get('*', function (req, res) {
+
+//   let deviceType = req.rawHeaders
+//   console.log(req)
+
+//   console.log(deviceType)
+
+//   res.send("<h2> Device Type is "+ deviceType +" </h2>")
+
+//   //res.send("<h1>API is not ready yet!!</h1>")
+// })
 
 app.listen(3000)
 
