@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./app.css";
 
-import HeaderComponent from "./Common/HeaderComponent"
+import HeaderComponent from "./Common/headerComponent";
 import Footer from "./Common/footerComponent";
 import NotFound from "./Common/NotFoundComponent";
 import Home from "./Common/HomeComponent";
@@ -36,7 +36,7 @@ export default class ApplicationComponent extends Component {
             <Router>
                 <HeaderComponent header={this.state.header} name={this.state.name} getChildData={this.getChildData}/>
                 <Routes>
-                    <Route path="/home" element={<Home user={"User"} userName={"Boubacar"}/>}/>
+                    <Route path="/home" element={<Home userName={"Jonathan"}/>}/>
                     <Route path="/about" element={<About/>} />
                     <Route path="*" element={<NotFound/>} />
                 </Routes>

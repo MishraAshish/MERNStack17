@@ -13,16 +13,14 @@ let HeaderComponent = (props)=>{
             <div>
                 <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink>
                 <NavLink to="/about" className="button" activeclassname="success" >About </NavLink>
-            </div>
-
-            <div>
+            </div>            
+        </>
+    )
+}
+{/* <div>
                 <h3>{props.header}</h3>
                 <h3>Name - {props.name}</h3>
 
                 <button onClick={()=>props.getChildData("Gauri!!! from child component")}>Pass To Parent</button>
-            </div>
-        </>
-    )
-}
-
+            </div> */}
 export default HeaderComponent;
