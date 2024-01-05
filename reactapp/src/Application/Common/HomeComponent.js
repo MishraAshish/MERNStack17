@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import {PropTypes} from "prop-types"; 
 
-export default class HomeComponent extends Component {
+//is used to compare all the props and states as we do in should component update
+export default class HomeComponent extends PureComponent {
+
+//export default class HomeComponent extends Component {
 
     //Creation Life Cycle Methods
     constructor(props){ //props - is used to pass information from parent to child component
@@ -43,44 +46,114 @@ export default class HomeComponent extends Component {
     //destruction life cycle method - used to clear callbacks and api subscriptions
     componentWillUnmount(){
         console.log("Component is unmounted")
-
         clearInterval(this.intervalObj)
     }
 
     textChange = (evt)=>{
-        let target = evt.target.value;
-        console.log(target)
+        let target = evt.target;
+        let classList = evt.target.classList;
 
-        this.setState({
-            userName : target
-        })
+        //console.log(target)
+        if (classList.contains("userName")) {
+            this.setState({
+                userName : target.value
+            })    
+        } else {
+            this.setState({
+                userSession : target.value
+            })
+        }
 
         evt.preventDefault()
     }
 
+    formSubmit = (evt)=>{
+        let address = this.address.current.value
+        let age = this.age.current.value
+
+        //api to change the state - to be used
+        this.setState({address, age})
+
+        // this.state.address = address
+        // this.state.age = age
+
+        //api to call render method, by skipping life cycle methods - should be avoided
+        //this.forceUpdate();
+
+        //alert(address + " " + age)
+
+        evt.preventDefault()
+    }
+
+    //update life cycle method - decides whether re-render should happen or not
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log(nextProps, nextState)
+
+    //     if (nextState.address === this.state.address && nextState.age === this.state.age) {
+    //         return false //no need to call render method as states are same
+    //     } else {
+    //         return true
+    //     }
+        
+    //     //return true
+    // }
+
+    getSnapshotBeforeUpdate(prevState, prevProps){
+        console.log("getSnapshotBeforeUpdate");
+        console.log("prevState", prevState);
+        console.log("prevProps", prevProps);
+        return {
+            prevState,
+            prevProps
+        }
+    }
+
+    componentDidUpdate(prevState, prevProps){
+        console.log("componentDidUpdate");
+        console.log("prevState",prevState);
+        console.log("prevProps", prevProps);
+
+        // this.setState({
+        //     uState : prevState.uState
+        // })
+    }
+
     render(){
-        //console.log("render method called! to create virtual dom")
+        console.log("render method called! to create virtual dom")
         return(
             <>
                 <h1>Home Component</h1>
                 <b>{this.props.userName}</b>
                 <b>{this.state.userName}</b>
+                <b>{this.state.address}</b>
+                <b>{this.state.age}</b>
+
                 {/* controlled way of component creation */}
                 <div className="col-md-12">
                     <div className="col-md-8">
                         <label>User Name</label>
-                        <input type="text" value={this.state.userName} onChange={this.textChange} maxLength={20}></input>
+                        <input type="text" value={this.state.userName} className="userName"
+                                onChange={this.textChange} maxLength={20}></input>
                     </div>
                     <div className="col-md-8">
                         <label>User Session</label>
-                        <input type="text" value={this.state.userSession} maxLength={20}></input>
+                        <input type="text" value={this.state.userSession} className="session"
+                                onChange={this.textChange} maxLength={20}></input>
                     </div>
                 </div>
 
 
                 {/* un-controlled way of component creation */}
-                <input type="text" placeholder={"Default User Address"} ref={this.address} maxLength={20}></input>
-                <input type="text" placeholder={"Default User Age"} ref={this.age} maxLength={20}></input>
+                <form className="form" action="/api/loginUser" onSubmit={this.formSubmit}>
+                    <b>Address</b>
+                    <input type="text" placeholder={"Default User Address"} 
+                        ref={this.address} maxLength={20}></input>
+                    <b>Age</b>
+                    <input type="text" placeholder={"Default User Age"} 
+                        ref={this.age} maxLength={20}></input>
+
+                    <button type="submit" >Save</button>
+                </form>
             </>
         )
     }
