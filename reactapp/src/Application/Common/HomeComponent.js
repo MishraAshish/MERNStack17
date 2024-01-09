@@ -27,11 +27,11 @@ export default class HomeComponent extends PureComponent {
     componentDidMount(){
         this.callInterval()      
         
-        setTimeout(() => {
-            this.address.current.value = "Address Changed"
-            this.age.current.value = "Age Changed"
-            this.age.current.focus();
-        }, 3000);
+        // setTimeout(() => {
+        //     this.address.current.value = "Address Changed"
+        //     this.age.current.value = "Age Changed"
+        //     this.age.current.focus();
+        // }, 3000);
     }
 
     callInterval = ()=>{
