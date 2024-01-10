@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 let HeaderComponent = (props)=>{
     console.log("Rendering the header component")
-    debugger
+    //debugger
     let userName = props.user && props.user.userName ? props.user.userName : "No User Initialized";
 
     return(
@@ -14,6 +14,7 @@ let HeaderComponent = (props)=>{
              
             <div>
                 <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink>
+                <NavLink to="/user" className="button" activeclassname="success" >Login </NavLink>
                 <NavLink to="/about" className="button" activeclassname="success" >About </NavLink>
             </div>            
         </>

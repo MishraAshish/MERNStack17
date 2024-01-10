@@ -7,6 +7,9 @@ import Footer from "./Common/footerComponent";
 import NotFound from "./Common/NotFoundComponent";
 import Home from "./Common/HomeComponent";
 import About from "./Common/AboutComponent";
+//import UserComponent from "./AppComponent/User/UserComponent.jsx";
+import User from "./AppComponent/User/UserContainer";
+
 
 //class component
 
@@ -37,6 +40,7 @@ export default class ApplicationComponent extends Component {
                 <HeaderComponent header={this.state.header} name={this.state.name} getChildData={this.getChildData}/>
                 <Routes>
                     <Route path="/home" element={<Home userName={"Jonathan"}/>}/>
+                    <Route path="/user" element={<User/>} />
                     <Route path="/about" element={<About/>} />
                     <Route path="*" element={<NotFound/>} />
                 </Routes>

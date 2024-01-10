@@ -4,7 +4,7 @@ const Initial_State = {
     User : {
         userName : "Garcia",
         password : "",
-        street : "New York",
+        street : "California",
         mobile : 0
     }
 }
