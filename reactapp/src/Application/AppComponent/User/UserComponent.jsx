@@ -34,8 +34,8 @@ export default class UserComponent extends Component{
     loginUser = (evt)=>{        
         let newUser = this.state;
         alert("Logged Innn -"+JSON.stringify(newUser))
-        this.props.AddUser(newUser)
-
+        //this.props.AddUser(newUser) //returned in user container mapDispatchToProps
+        this.props.LoginUser(newUser)
         evt.preventDefault();
     }
 

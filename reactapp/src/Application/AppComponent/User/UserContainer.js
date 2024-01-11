@@ -2,7 +2,7 @@
 //also allows developer to isolate react component with functions
 import { connect } from "react-redux";
 import UserComponent from "./UserComponent.jsx";
-import { AddUserToStore } from "../../../State/User/userAction.js";
+import { AddUserToStore, SaveUserToDB } from "../../../State/User/userAction.js";
 
 //subscriber
 let mapStateToProps = (state)=>{ //state - store object from configure store in store.js
@@ -14,10 +14,8 @@ let mapStateToProps = (state)=>{ //state - store object from configure store in 
 //publisher
 let mapDispatchToProps = (dispatch)=>{
     return { 
-        AddUser : (userObj)=>
-                    {
-                        dispatch(AddUserToStore(userObj))
-                    }
+        AddUser : (userObj)=>dispatch(AddUserToStore(userObj)),
+        LoginUser : (newuser)=>dispatch(SaveUserToDB(newuser))                    
     }
 }
 
