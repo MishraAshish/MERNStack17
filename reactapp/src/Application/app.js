@@ -9,7 +9,7 @@ import Home from "./Common/HomeComponent";
 import About from "./Common/AboutComponent";
 //import UserComponent from "./AppComponent/User/UserComponent.jsx";
 import User from "./AppComponent/User/UserContainer";
-
+import UserHook from "./AppComponent/User/UserHookComponent";
 
 //class component
 
@@ -41,6 +41,7 @@ export default class ApplicationComponent extends Component {
                 <Routes>
                     <Route path="/home" element={<Home userName={"Jonathan"}/>}/>
                     <Route path="/user" element={<User/>} />
+                    <Route path="/hook" element={<UserHook/>} />
                     <Route path="/about" element={<About/>} />
                     <Route path="*" element={<NotFound/>} />
                 </Routes>
