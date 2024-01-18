@@ -15,6 +15,8 @@ let UserHook = (props)=>{
     //this will do thejob of mapStateToProps and allows us read data from reducer/store
     let User = useSelector((state)=>state.UserReducer.User)
 
+    let someValue = 0;
+
     // initializes state and returns a callback which we can use to update the state
     let [uName, setUserName] = useState(User.userName)
     let [pass, setPassword] = useState(User.password)
@@ -66,15 +68,24 @@ let UserHook = (props)=>{
         console.log("Re render happend")
 
         //assign the values we got from reducer
-        sessionName.current.value = User.userName //"David" 
-        todaysTopic.current.value = User.street
+        // sessionName.current.value = User.userName //"David" 
+        // todaysTopic.current.value = User.street
+
+        //if we return a function in useEffect - this acts as componentWillUnmount
+        return ()=>{
+            clearInterval(interval)
+            console.log("Hook instance gets cleared! componentWilUnmount")
+        }
 
         }, [sessionName, todaysTopic]) //if we pass value in second parameter it initializes and behaves as - componentDidMount
 
+    let interval = setInterval(() => {
+        console.log(someValue++)
+    }, 2000);
 
     return(
         <>
-            <h1>User Login Page - Hooks</h1>
+            <h1>User Login Page</h1>
             <section className={"componentClass"}>
                 <div className="form col-md-8">
                     <div className="col-md-12">
@@ -110,7 +121,7 @@ let UserHook = (props)=>{
             </section>
 
             {/* uncontrolled way by using ref keyword */}
-            <form className={"form col-md-10 userHook"} onSubmit={readFormData}>                
+            {/* <form className={"form col-md-10 userHook"} onSubmit={readFormData}>                
                 <label>
                     <b>User Name :</b>
                     <input type="text" className={"form-control col-md-12"} ref={sessionName}
@@ -124,7 +135,7 @@ let UserHook = (props)=>{
                     </label>
                     <br/>
                 <input type="submit" className={"btn btn-primary"} value="Signin" />
-            </form> 
+            </form>  */}
         </>
     )
 }
