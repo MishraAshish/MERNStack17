@@ -11,6 +11,9 @@ const adminRoutes = require("./Router/admin-route")
 const userApp = express() //created to load the request for admin/backend work
 const userRoutes = require("./Router/user-route")
 
+const productApp = express() //created to load the request for admin/backend work
+const productRoutes = require("./Router/product-route")
+
 app.use(cors()) //enabling cross origin resource sharing at root level
 //setting up the middleware static to handle all the static files we need to serve to client
 // serve static files like images css using static middleware 
@@ -24,6 +27,9 @@ adminApp.use('/',adminRoutes)
 
 app.use('/user', userApp) //http://localhost:9000/user/api/signinup
 userApp.use('/',userRoutes)
+
+app.use('/product', productApp)
+productApp.use('/',productRoutes)
 
 app.listen(9000)
 
