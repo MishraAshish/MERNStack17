@@ -14,6 +14,9 @@ const userRoutes = require("./Router/user-route")
 const productApp = express() //created to load the request for admin/backend work
 const productRoutes = require("./Router/product-route")
 
+const cartApp = express() //created to load the request for cart
+const cartRoutes = require("./Router/cart-route")
+
 app.use(cors()) //enabling cross origin resource sharing at root level
 //setting up the middleware static to handle all the static files we need to serve to client
 // serve static files like images css using static middleware 
@@ -30,6 +33,9 @@ userApp.use('/',userRoutes)
 
 app.use('/product', productApp)
 productApp.use('/',productRoutes)
+
+app.use('/cart', cartApp)
+cartApp.use('/',cartRoutes)
 
 app.listen(9000)
 

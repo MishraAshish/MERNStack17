@@ -22,7 +22,7 @@ let DisplayProducts = ()=>{
             {
                 products && products.length > 0 ?
                 products.map((productItem)=>{
-                    return <ProductItemComponent product={productItem} _id={productItem._id} />
+                    return <ProductItemComponent product={productItem} key={productItem._id} />
                 })
                 : <h4>No Products To Display</h4>
             }

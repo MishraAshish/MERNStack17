@@ -73,15 +73,15 @@ let UserHook = (props)=>{
 
         //if we return a function in useEffect - this acts as componentWillUnmount
         return ()=>{
-            clearInterval(interval)
+            //clearInterval(interval)
             console.log("Hook instance gets cleared! componentWilUnmount")
         }
 
         }, [sessionName, todaysTopic]) //if we pass value in second parameter it initializes and behaves as - componentDidMount
 
-    let interval = setInterval(() => {
-        console.log(someValue++)
-    }, 2000);
+    // let interval = setInterval(() => {
+    //     console.log(someValue++)
+    // }, 2000);
 
     return(
         <>

@@ -5,11 +5,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import UserReducer from "./User/userReducer";
 import ProductReducer from "./Product/productReducer";
+import CartReducer from "./Cart/cartReducer";
 
 //combine reducer is used to combine all the reducers we need in our store/state
 const rootReducer = combineReducers({ 
     UserReducer, //UserReducer : UserReducer  //state.UserReducer.User.userName
-    ProductReducer
+    ProductReducer,
+    CartReducer
 })
 
 //create or configure and export the store from this code
