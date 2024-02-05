@@ -16,10 +16,11 @@ let CartItemComponent = (props)=>{
             <td>{item.desc}</td>
             <td>{item.rating}</td>
             <td>
-            {
-                props.readOnly ? Quantity : 
-                <input type="text" value={Quantity} onChange={(evt)=>{setQuantity(evt.target.value)}}></input>    
-            }</td>
+                {
+                    props.readOnly ? Quantity : //props.readOnly == true 
+                    <input type="text" value={Quantity} onChange={(evt)=>{setQuantity(evt.target.value)}}></input>    
+                }
+            </td>
             <td>{item.qty*item.price}</td>
             {
                 props.readOnly ?  "" : //bydefault false as boolean default is false
