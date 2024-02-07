@@ -1,3 +1,8 @@
+// 07-10-2023 - Reorder Page
+// Reorder
+// User to reorder from recent orders or from cancelled orders
+// A Simple process just add the order to your cart and replace or merge whatever is present in cart
+
 // 06-02-2024 - Cancelled Orders
 // Save the order to CancelledOrders collection (should have userid, cancelled, dateTime)
 // Make API to Save and Fetch from CancelledOrders
